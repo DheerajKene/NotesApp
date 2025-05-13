@@ -1,0 +1,12 @@
+- we will deploy the backend first before creating the frontend.
+    - we have certain platforms as:
+    1. railway (it is fast)
+    2. cyclic
+    3. render 
+
+
+Deployment typically referes to the process of making an application or system availabl for use.
+
+AWS (we use for deployment)
+Azure
+Cloud
