@@ -10,3 +10,8 @@ Deployment typically referes to the process of making an application or system a
 AWS (we use for deployment)
 Azure
 Cloud
+
+.env file include:
+PORT = 3002
+SECRETE_KEY = 'DHEERAJ'
+MongoURL =  "mongodb+srv://test_dheeraj:new_user_01@cluster0.zt3hmch.mongodb.net/full_Stake_App?retryWrites=true&w=majority&appName=Cluster0"
