@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 const UserRouter = express.Router();
 
 UserRouter.post('/register', async (req, res)=>{
-    const {name, email, password,gender, age} = req.body;
+    const {name, email, password, gender, age} = req.body;
     
     try {
         const reg_user = await UserModel.find({email});    //this reg_user for finding that the user is already registered to avoid repeatative registrations.
