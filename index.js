@@ -2,7 +2,7 @@ const express = require('express')
 require("dotenv").config()
 const connection = require("./config/db");
 const UserRouter = require('./route/user.route');
-// const cors = require('cors')
+const cors = require('cors')
 const NoteRouter = require('./route/note.route');
 const auth = require('./middleware/auth.middleware')
 
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 app.use("/user", UserRouter);
 app.use('/note', auth, NoteRouter)
-// app.use(cors());
+app.use(cors());
 
 
 app.get('/', (req, res)=>{
