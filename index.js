@@ -10,7 +10,8 @@ const auth = require('./middleware/auth.middleware')
 const app = express();
 const PORT = process.env.PORT || 8000;
 app.use(cors({
-    origin:'*'
+    origin:'http://localhost:5173/Register',
+    credentials: true
 }));
 app.use(express.json());
 app.use("/user", UserRouter);
