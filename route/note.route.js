@@ -9,7 +9,7 @@ NoteRouter.get('/notes', async (req, res)=>{
     const userId = req.user._id;
 try {
     const notes = await NoteModel.find({userId});
-    res.send(notes);
+    res.send(notes,"hii");
 } catch (error) {
     res.send(`Error while fetching notes..!${error}`);
 }
@@ -53,7 +53,7 @@ NoteRouter.post('/create-note', async (req, res)=>{
     
 });
 
-NoteRouter.post('/delete-note', async (req, res)=>{
+NoteRouter.post('/delete/:id', async (req, res)=>{
     const userId = req.user._id;
     const noteId = req.params.id
     try {
