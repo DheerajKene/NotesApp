@@ -18,7 +18,7 @@ try {
 
 
 
-NoteRouter.post('/update-note', async (req, res)=>{
+NoteRouter.patch('/update/:id', async (req, res)=>{
     const payload = req.body;
     const noteId = req.params.id;
     const userId = req.user._id;
@@ -35,7 +35,7 @@ NoteRouter.post('/update-note', async (req, res)=>{
     }
 });
 
-NoteRouter.post('/create-note', async (req, res)=>{
+NoteRouter.post('/create', async (req, res)=>{
     const {title, description , status } = req.body;
     const userId = req.user._id;
     try {
@@ -53,11 +53,12 @@ NoteRouter.post('/create-note', async (req, res)=>{
     
 });
 
-NoteRouter.post('/delete/:id', async (req, res)=>{
+NoteRouter.delete('/delete/:id', async (req, res)=>{
     const userId = req.user._id;
     const noteId = req.params.id
     try {
-        const note = NoteModel.findOne({_id:noteId});
+        const note = await NoteModel.findOne({_id:noteId});
+        console.log(note)
         if(note.userId.toString() == userId.toString()){
             await NoteModel.findByIdAndDelete({_id:noteId});
             return res.send(`note deleted successfully...`);
